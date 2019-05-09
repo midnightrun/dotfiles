@@ -19,9 +19,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kadekillary/Turtles'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -31,27 +33,25 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-syntax on
+set t_co=256
 set background=dark
-
-" lightline config
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'palenight',
-      \ }
-
-if (has("termguicolors"))
-	set termguicolors
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	
-	set background=dark
-	colorscheme palenight
-endif
+set cursorline
+let g:dracula_colorterm = 0
+syntax on
+let g:dracula_italic=0
+colors dracula
 
 set number
-
 let g:netrw_banner=0
+" set Vim-specific sequences for RGB colors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set termguicolors
+
+"vim-airline config
+let g:airline_theme = 'dracula'
+let g:airline_powerline_fonts = 1                       "displays arrows, terminal must have a powerline font
+
 
 " Terraform configs
 let g:terraform_align=1
@@ -60,6 +60,7 @@ let g:terraform_remap_spacebar=1
 let g:terraform_commentstring='//%s'
 let g:terraform_fmt_on_save=1
 
+" vim-go configs
 let g:go_def_mode='gopls'
 
 " for GitGutter, making Vim update faster
