@@ -43,15 +43,10 @@ colors dracula
 
 set number
 let g:netrw_banner=0
-" set Vim-specific sequences for RGB colors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set termguicolors
 
 "vim-airline config
 let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1                       "displays arrows, terminal must have a powerline font
-
 
 " Terraform configs
 let g:terraform_align=1
@@ -62,6 +57,7 @@ let g:terraform_fmt_on_save=1
 
 " vim-go configs
 let g:go_def_mode='gopls'
+let g:go_fmt_command='goimports'
 
 " for GitGutter, making Vim update faster
 set updatetime=100
