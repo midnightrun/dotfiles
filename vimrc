@@ -10,25 +10,16 @@ call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
-
 Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'airblade/vim-gitgutter'
-
-Plug 'kadekillary/Turtles'
 Plug 'dracula/vim', { 'as': 'dracula' }
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 Plug 'mileszs/ack.vim'
-
 Plug 'hashivim/vim-terraform'
 
 call plug#end()
@@ -36,8 +27,14 @@ call plug#end()
 set t_co=256
 set background=dark
 set cursorline
-let g:dracula_colorterm = 0
+set omnifunc=syntaxcomplete#Complete
+set noshowmode
+
 syntax on
+
+filetype plugin on
+
+let g:dracula_colorterm = 0
 let g:dracula_italic=0
 colors dracula
 
@@ -58,6 +55,7 @@ let g:terraform_fmt_on_save=1
 " vim-go configs
 let g:go_def_mode='gopls'
 let g:go_fmt_command='goimports'
+let g:go_echo_go_info = 1
 
 " for GitGutter, making Vim update faster
 set updatetime=100
@@ -84,5 +82,5 @@ nnoremap <C-H> <C-W><C-H>
 imap <C-l> <C-X><C-O>
 
 autocmd BufWritePost *.json silent :%!python -m json.tool
+autocmd BufWritePost *.yaml setlocal ts=2 sts=2 sw=2 expandtab
 au VimEnter * RainbowParentheses
-
