@@ -19,6 +19,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tsandall/vim-rego'
 Plug 'mileszs/ack.vim'
 Plug 'hashivim/vim-terraform'
 
@@ -29,8 +30,10 @@ set background=dark
 set cursorline
 set omnifunc=syntaxcomplete#Complete
 set noshowmode
-
 syntax on
+
+" Bell
+silent! set noerrorbells visualbell t_vb=
 
 filetype plugin on
 
@@ -54,6 +57,7 @@ let g:terraform_fmt_on_save=1
 
 " vim-go configs
 let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command='goimports'
 let g:go_echo_go_info = 1
 
@@ -81,6 +85,12 @@ nnoremap <C-H> <C-W><C-H>
 
 imap <C-l> <C-X><C-O>
 
+" File formatting
+" JSON 
 autocmd BufWritePost *.json silent :%!python -m json.tool
-autocmd BufWritePost *.yaml setlocal ts=2 sts=2 sw=2 expandtab
+" YAML
+au! BufNewFile, BufReadPost *.{yaml, yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Activations
 au VimEnter * RainbowParentheses
