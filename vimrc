@@ -5,24 +5,32 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
-call plug#begin('~/.vim/plugged')
 
+call plug#begin('~/.vim/plugged')
+" * Settings
+" - Tools
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'slashmili/alchemist.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+" - Colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tsandall/vim-rego'
-Plug 'mileszs/ack.vim'
-Plug 'hashivim/vim-terraform'
 
+" * Languages
+" - Elixir
+Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+" - Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" - Terraform 
+Plug 'hashivim/vim-terraform'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+" - Rego
+Plug 'tsandall/vim-rego'
 call plug#end()
 
 set t_co=256
