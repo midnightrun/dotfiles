@@ -14,7 +14,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mileszs/ack.vim'
 " - Colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'beikome/cosme.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -45,15 +46,16 @@ silent! set noerrorbells visualbell t_vb=
 
 filetype plugin on
 
-let g:dracula_colorterm = 0
-let g:dracula_italic=0
-colors dracula
+" ?
+" let g:dracula_colorterm = 0
+" let g:dracula_italic=0
+colors cosme
 
 set number
 let g:netrw_banner=0
 
 "vim-airline config
-let g:airline_theme = 'dracula'
+let g:airline_theme = 'cosme'
 let g:airline_powerline_fonts = 1                       "displays arrows, terminal must have a powerline font
 
 " Terraform configs
