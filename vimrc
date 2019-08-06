@@ -7,11 +7,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+
 " * Settings
 " - Tools
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'Yggdroot/indentLine'
 Plug 'mileszs/ack.vim'
 " - Colorscheme
 Plug 'beikome/cosme.vim'
@@ -43,7 +45,6 @@ syntax on
 
 " Bell
 silent! set noerrorbells visualbell t_vb=
-
 filetype plugin on
 
 " ?
@@ -57,6 +58,10 @@ let g:netrw_banner=0
 "vim-airline config
 let g:airline_theme = 'cosme'
 let g:airline_powerline_fonts = 1                       "displays arrows, terminal must have a powerline font
+
+" Indent config
+let g:indentLine_fileType = ['yaml']
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " Terraform configs
 let g:terraform_align=1
