@@ -12,9 +12,9 @@ call plug#begin('~/.vim/plugged')
 " - Tools
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'tyru/open-browser.vim'
 " - Colorscheme
 Plug 'beikome/cosme.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
@@ -34,6 +34,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 " - Rego
 Plug 'tsandall/vim-rego'
+" - PlantUML
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+" - YAML
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 set t_co=256
