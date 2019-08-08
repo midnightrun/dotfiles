@@ -39,9 +39,12 @@ Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 " - YAML
 Plug 'Yggdroot/indentLine'
+" - Nix
+Plug 'LnL7/vim-nix'
 call plug#end()
 
-set t_co=256
+" ? Why does this line expand 256 to t_co?
+" set t_co=256
 set background=dark
 set cursorline
 set omnifunc=syntaxcomplete#Complete
@@ -103,7 +106,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-imap <C-l> <C-X><C-O>
+imap <C-L> <C-X><C-O>
 
 " File formatting
 " JSON 
