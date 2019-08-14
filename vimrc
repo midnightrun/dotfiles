@@ -12,8 +12,10 @@ call plug#begin('~/.vim/plugged')
 " - Tools
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tyru/open-browser.vim'
 " - Colorscheme
 Plug 'beikome/cosme.vim'
@@ -98,15 +100,24 @@ if executable('ag')
   cnoreabbrev AG Ack
 endif
 
+" Netrw mappings
 nmap <C-W><C-E> :Explore<CR>
 nmap <C-W><C-B> :b<CR>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Navigation mapping
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
 
-imap <C-L> <C-X><C-O>
+" Autocompletion mapping
+imap <C-A> <C-X><C-O>
+
+" Zen Mode mapping
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " File formatting
 " JSON 
