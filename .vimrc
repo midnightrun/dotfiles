@@ -23,6 +23,7 @@ colorscheme cosme
 
 " **General**
 set number
+set bs=2
 " Display unprintable characters
 set list
 set listchars=tab:•\ ,trail:•,extends:»,precedes:«
