@@ -7,19 +7,25 @@ endif
 " **Plugins**
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
-Plug 'beikome/cosme.vim'
 Plug 'dense-analysis/ale'
 Plug 'hashivim/vim-terraform'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'mrk21/yaml-vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'wadackel/vim-dogrun'
 call plug#end()
 
 " **Colorscheme**
-colorscheme cosme
+if !has('gui_running')
+  set t_Co=256
+endif
+
+colorscheme dogrun
+let g:lightline = { 'colorscheme': 'dogrun' }
+set laststatus=2
 
 " **General**
 set number
@@ -32,6 +38,10 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 let g:netrw_banner=0
 
 " **ALE**
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+
 let g:ale_linters = {
 \   'terraform': ['terraform-lsp'],
 \   'go': ['gopls', 'golangci-lint'],
@@ -110,3 +120,6 @@ xmap <Leader>f :Rg<CR>
 
 " ***Filetype***
 autocmd FileType json syntax match Comment +\/\/.\+$+
+" add yaml stuffs
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
