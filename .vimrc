@@ -7,14 +7,17 @@ endif
 " **Plugins**
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
+Plug 'bazelbuild/vim-bazel'
 Plug 'dense-analysis/ale'
+Plug 'google/vim-maktaba'
 Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'mrk21/yaml-vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sebdah/vim-delve'
 Plug 'wadackel/vim-dogrun'
 call plug#end()
 
@@ -24,7 +27,7 @@ if !has('gui_running')
 endif
 
 colorscheme dogrun
-let g:lightline = { 'colorscheme': 'dogrun' }
+let g:lightline = {'colorscheme': 'dogrun'}
 set laststatus=2
 
 " **General**
@@ -38,7 +41,7 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 let g:netrw_banner=0
 
 " **ALE**
-let g:ale_set_loclist = 0
+let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
 
@@ -93,7 +96,32 @@ nmap <C-W><C-E> :Explore<CR>
 " Return to file
 nmap <C-W><C-R> :b<CR>
 
+" CoC mappings
+nmap <Leader>d <Plug>(coc-definition)
+
 " Zen Mode
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'DarkGray'
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.5
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 0
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s*$\n\zs'
+let g:limelight_eop = '^\s*$'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = 10
+
 function! s:goyo_enter()
   set noshowmode
   set noshowcmd
