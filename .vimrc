@@ -10,32 +10,56 @@ Plug '/usr/local/opt/fzf'
 Plug 'bazelbuild/vim-bazel'
 Plug 'dense-analysis/ale'
 Plug 'google/vim-maktaba'
+Plug 'govim/govim'
 Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'kadekillary/turtles'
 Plug 'mrk21/yaml-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 Plug 'sebdah/vim-delve'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'wadackel/vim-dogrun'
 call plug#end()
 
 " **Colorscheme**
-if !has('gui_running')
-  set t_Co=256
-endif
+colorscheme turtles
+set termguicolors
 
-colorscheme dogrun
-let g:lightline = {'colorscheme': 'dogrun'}
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+"vim-airline config
+let g:airline_theme = 'turtles'
+let g:airline_powerline_fonts = 1                       "displays arrows, terminal must have a powerline font
+let g:airline#extensions#tabline#enabled = 1            "automatically display all buffers (even one tab)
+let g:airline#extensions#tabline#formatter = 'default'
+
 set laststatus=2
+syntax on
 
 " **General**
 set number
 set bs=2
+set encoding=UTF-8
+
+" Change path to current buffer location
+autocmd BufEnter * silent! lcd %:p:h
+
 " Display unprintable characters
 set list
 set listchars=tab:•\ ,trail:•,extends:»,precedes:«
+
+" Activations
+au VimEnter * RainbowParentheses
 
 " **netrw**
 let g:netrw_banner=0
@@ -58,6 +82,27 @@ let g:ale_fixers = {
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+
+" **govim**
+set nocompatible
+set nobackup
+set nowritebackup
+set noswapfile
+set mouse=a
+set updatetime=500
+set balloondelay=250
+set signcolumn=yes
+set autoindent
+set smartindent
+set backspace=2
+
+filetype indent on
+filetype plugin on
+
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
 
 " **CoC**
 inoremap <silent><expr> <TAB>
@@ -97,7 +142,10 @@ nmap <C-W><C-E> :Explore<CR>
 nmap <C-W><C-R> :b<CR>
 
 " CoC mappings
-nmap <Leader>d <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Zen Mode
 " Color name (:help cterm-colors) or ANSI code
