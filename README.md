@@ -3,7 +3,11 @@
 ## Descriptions
 
 ### Vim
-Coming soon!
+- Fixed fzf integration
+- Changed colorscheme to Seoul256
+
+### tmux
+- Initial setup
 
 ### Text
-18pt Space Mono Nerd Font Complete
+14pt JetBrains Mono Regular
