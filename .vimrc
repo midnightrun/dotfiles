@@ -15,8 +15,8 @@ Plug 'dense-analysis/ale'
 Plug 'google/vim-maktaba'
 Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -24,6 +24,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'sebdah/vim-delve'
+Plug 'tpope/vim-fugitive'
 Plug 'udalov/kotlin-vim'
 call plug#end()
 
